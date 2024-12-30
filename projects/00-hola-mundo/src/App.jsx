@@ -1,24 +1,15 @@
+import React from 'react';
 import './App.css';
+import { TwitterFollowCard } from './TwitterFollowCard';
+
 
 export function App() {
     return (
-        <article className="tw-followcard">
-            <header className="tw-followcard-header">
-                <img 
-                    src="https://unavatar.io/goku" 
-                    alt="Avatar de Son Goku" 
-                    className="tw-followcard-avatar" 
-                />
-                <div className="tw-followcard-info">
-                    <strong>Son Goku</strong>
-                    <span className="tw-followcard-infoUserName">@gokuaa</span>
-                </div>
-            </header>
-            <aside>
-                <button className="tw-followcard-button">
-                    Seguir
-                </button>
-            </aside>
-        </article>
-    );
+     
+       <section className='App'>
+   <TwitterFollowCard isFollowing={true} UserName="carlos" name="Carlos Nogeroles Colmenero" />
+            <TwitterFollowCard isFollowing={false} UserName="saiken" name="Saiken Sonkaru" />
+            <TwitterFollowCard isFollowing={true} UserName="goku" name="Son Goku" />
+</section>
+    )
 }

@@ -37,3 +37,9 @@
     border: 1px solid #000;
     transition: 0.3s ease background-color;
 }
+
+.App{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
