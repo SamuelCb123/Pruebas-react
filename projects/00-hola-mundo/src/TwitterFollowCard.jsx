@@ -2,9 +2,8 @@ import React from 'react';
 import './App.css';
 
 
-export function TwitterFollowCard({ formatUserName, UserName, name, isFollowing }) {
+export function TwitterFollowCard({children, UserName,  isFollowing }) {
     console.log(isFollowing); // Solo muestra true o false
-
     return (
         <article className="tw-followcard">
             <header className="tw-followcard-header">
@@ -14,15 +13,14 @@ export function TwitterFollowCard({ formatUserName, UserName, name, isFollowing 
                     className="tw-followcard-avatar" 
                 />
                 <div className="tw-followcard-info">
-                    <strong>{name}</strong>
-                    <span className="tw-followcard-infoUserName">{formatUserName(UserName)}</span>
+                    <strong>{children}</strong>
+                    <span className="tw-followcard-infoUserName">@{UserName}</span>
                 </div>
             </header>
             <aside>
-            <button className="tw-followcard-button">
+                <button className="tw-followcard-button">
                     Seguir
                 </button>
-
             </aside>
         </article>
     );
