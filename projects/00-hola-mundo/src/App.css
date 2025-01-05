@@ -36,6 +36,7 @@
     font-weight: bold;
     border: 1px solid #000;
     transition: 0.3s ease background-color;
+    
 }
 
 .App{
@@ -43,3 +44,18 @@
     flex-direction: column;
     gap: 16px;
 }
+
+.tw-followcard-button:hover {
+background-color: #09f;
+transition: .3s ease background-color;
+}
+.tw-followcard-button.is-following{
+border: 1px solid red;
+
+
+}
+.tw-followcard-button.is-following:hover{
+    border: 1px solid red;
+    background: red;
+    
+    }
