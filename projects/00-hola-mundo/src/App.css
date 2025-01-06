@@ -36,26 +36,28 @@
     font-weight: bold;
     border: 1px solid #000;
     transition: 0.3s ease background-color;
-    
-}
-
-.App{
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
 }
 
 .tw-followcard-button:hover {
-background-color: #09f;
-transition: .3s ease background-color;
+    background-color: #09f;
+    transition: 0.3s ease background-color;
 }
-.tw-followcard-button.is-following{
-border: 1px solid red;
 
-
+.tw-followcard-button.is-following {
+    border: 1px solid #bbb;
+    background: transparent;
+    color: #fff;
+    width: 120px;
+    position: relative;
 }
-.tw-followcard-button.is-following:hover{
-    border: 1px solid red;
-    background: red;
-    
-    }
+
+.tw-followcard-button.is-following .tw-followcard-stopFollow {
+    display: none; /* Oculto por defecto */
+}
+
+.tw-followcard-button.is-following:hover .tw-followcard-stopFollow {
+    display: inline; /* Se muestra al hacer hover */
+}
+
+.tw-followcard-button.is-following:hover .tw-followcard-followText {
+    display: none; }

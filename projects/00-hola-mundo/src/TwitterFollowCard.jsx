@@ -2,20 +2,14 @@ import React, { useState } from 'react';
 import './App.css';
 
 export function TwitterFollowCard({ children, UserName, InitialisFollowing }) {
-    // Inicializamos el estado
     const [isFollowing, setIsFollowing] = useState(InitialisFollowing);
 
-    // Texto del botón basado en el estado
-    const text = isFollowing ? 'Siguiendo' : 'Seguir';
-
-    // Clase del botón basada en el estado
     const buttonClassName = isFollowing 
         ? 'tw-followcard-button is-following' 
         : 'tw-followcard-button';
 
-    // Función para manejar el clic en el botón
     const handleButtonClick = () => {
-        setIsFollowing(!isFollowing); // Cambia el estado
+        setIsFollowing(!isFollowing);
     };
 
     return (
@@ -36,7 +30,14 @@ export function TwitterFollowCard({ children, UserName, InitialisFollowing }) {
                     className={buttonClassName} 
                     onClick={handleButtonClick} 
                 >
-                    {text}
+                    {isFollowing ? (
+                        <>
+                            <span className="tw-followcard-followText">Siguiendo</span>
+                            <span className="tw-followcard-stopFollow">Dejar de seguir</span>
+                        </>
+                    ) : (
+                        'Seguir'
+                    )}
                 </button>
             </aside>
         </article>
