@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import './App.css';
 
-export function TwitterFollowCard({ children, UserName }) {
+export function TwitterFollowCard({ children, UserName, InitialisFollowing }) {
     // Inicializamos el estado
-    const [isFollowing, setIsFollowing] = useState(false);
+    const [isFollowing, setIsFollowing] = useState(InitialisFollowing);
 
     // Texto del botón basado en el estado
     const text = isFollowing ? 'Siguiendo' : 'Seguir';
@@ -34,7 +34,7 @@ export function TwitterFollowCard({ children, UserName }) {
             <aside>
                 <button 
                     className={buttonClassName} 
-                    onClick={handleButtonClick} // Añadimos funcionalidad al botón
+                    onClick={handleButtonClick} 
                 >
                     {text}
                 </button>
