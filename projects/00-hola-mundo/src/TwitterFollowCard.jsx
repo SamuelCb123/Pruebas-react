@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 
+export function TwitterFollowCard({ children, UserName }) {
+    // Inicializamos el estado
+    const [isFollowing, setIsFollowing] = useState(false);
 
-export function TwitterFollowCard({children, UserName,  isFollowing }) {
-    const text = isFollowing ? 'siguiendo' : 'seguir' //usando una ternaria es como un if pero mas corto en este caso el texto cambiara dependioendo de si estamos siguiendo o no
-     // Solo muestra true o false
-     const buttonClassName= isFollowing ? 'tw-followcard-button is-following' : 'tw-followcard-button' //cambiando color de boton si es following 
+    // Texto del botón basado en el estado
+    const text = isFollowing ? 'Siguiendo' : 'Seguir';
+
+    // Clase del botón basada en el estado
+    const buttonClassName = isFollowing 
+        ? 'tw-followcard-button is-following' 
+        : 'tw-followcard-button';
+
+    // Función para manejar el clic en el botón
+    const handleButtonClick = () => {
+        setIsFollowing(!isFollowing); // Cambia el estado
+    };
+
     return (
         <article className="tw-followcard">
             <header className="tw-followcard-header">
                 <img 
                     src={`https://unavatar.io/${UserName}`} 
-                    alt={`Avatar`} 
+                    alt={`Avatar de ${children}`} 
                     className="tw-followcard-avatar" 
                 />
                 <div className="tw-followcard-info">
@@ -20,11 +32,13 @@ export function TwitterFollowCard({children, UserName,  isFollowing }) {
                 </div>
             </header>
             <aside>
-                <button className={buttonClassName}>
+                <button 
+                    className={buttonClassName} 
+                    onClick={handleButtonClick} // Añadimos funcionalidad al botón
+                >
                     {text}
                 </button>
             </aside>
         </article>
     );
 }
-

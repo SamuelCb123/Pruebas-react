@@ -8,17 +8,17 @@ export function App() {
 
     return (
         <section className='App'>
-            <TwitterFollowCard isFollowing={true}  UserName="carlos"  >
+            <TwitterFollowCard   UserName="carlos"  >
                 Carlos Nogeroles
                 
                 </TwitterFollowCard> 
              
             
-            <TwitterFollowCard isFollowing={false} UserName="saiken">
+            <TwitterFollowCard  UserName="saiken">
                 Saiken sonkaru
             </TwitterFollowCard>
             
-            <TwitterFollowCard isFollowing={true} UserName="goku">
+            <TwitterFollowCard  UserName="goku">
                 Son Goku
             </TwitterFollowCard>
             
