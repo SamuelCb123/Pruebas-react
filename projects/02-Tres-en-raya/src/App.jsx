@@ -1,11 +1,19 @@
+import { Children } from 'react';
 import './App.css';
+const turns = {
+  X: 'x',
+  o: 'O', // Creación de constantes para los turnos
+};
 
+const Square = ({ children, updateBoard, index }) => {
+  return (
+    <div className="square">
+      {children} 
+    </div>
+  );
+};//constante que contiene el tablero children que sera las x o O
 function App() {
-  const turns = {
-    X: 'x',
-    o: 'O', // Creación de constantes para los turnos
-  };
-
+  
   const board = Array(9).fill(null); // Array de 9 posiciones para el tablero
 
   return (
@@ -13,18 +21,20 @@ function App() {
       <h1>Tres en Raya</h1>
       <section className="game">
         {
-          board.map((_, index) => (
-            <div className="cell" >
-              {/* Cada celda tiene un identificador único */}
-              <span className="cell_content">
-                {index} {/* Mostramos el índice de cada celda */}
-              </span>
-            </div>
+          board.map((_, index) => ( // Quitamos el `return` innecesario
+            <Square
+              key={index} // Asignamos una key única
+              index={index} // Pasamos el índice como prop
+             
+            >
+             
+            </Square>
           ))
         }
       </section>
     </main>
   );
 }
+
 
 export default App;
