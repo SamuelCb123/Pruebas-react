@@ -1,40 +1,48 @@
-import { Children } from 'react';
+import { useState } from 'react';
 import './App.css';
+
 const turns = {
-  X: 'x',
-  o: 'O', // Creación de constantes para los turnos
+  X: 'X', // Ajustamos los valores para reflejar los turnos correctamente
+  O: 'O',
 };
 
-const Square = ({ children, updateBoard, index }) => {
+const Square = ({ children, isSelected, updateBoard, index }) => {
+  const turnito = `square ${isSelected ? 'is-selected' : ''}`; // ternario que en caso de ser true mostrara los estilos de is-selected
   return (
-    <div className="square">
-      {children} 
+    <div className={turnito}>
+      {children} {/* Renderizamos los hijos */}
     </div>
   );
-};//constante que contiene el tablero children que sera las x o O
+};
+
 function App() {
-  
-  const board = Array(9).fill(null); // Array de 9 posiciones para el tablero
+  // Inicialización del estado
+  const [board, setBoard] = useState(Array(9).fill(null)); // Array de 9 posiciones para el tablero
+  const [turn, setTurn] = useState(turns.X); // Estado del turno
 
   return (
     <main className="board">
       <h1>Tres en Raya</h1>
       <section className="game">
-        {
-          board.map((_, index) => ( // Quitamos el `return` innecesario
-            <Square
-              key={index} // Asignamos una key única
-              index={index} // Pasamos el índice como prop
-             
-            >
-             
-            </Square>
-          ))
-        }
+        {board.map((_, index) => (
+          <Square
+            key={index} // Asignamos una key única
+            index={index} // Pasamos el índice como prop
+          >
+            {}
+          </Square>
+        ))}
+      </section>
+      <section className="turn">
+        <Square isSelected={turn === turns.X}> {/* Corregimos la lógica para determinar el turno */}
+          {turns.X}
+        </Square>
+        <Square isSelected={turn === turns.O}> {/* Corregimos la lógica para determinar el turno */}
+          {turns.O}
+        </Square>
       </section>
     </main>
   );
 }
-
 
 export default App;
